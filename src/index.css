@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Press Start 2P", monospace;
+  --font-silk: "Silkscreen", monospace;
+  --font-vt: "VT323", monospace;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #79bfff;
+    color: #142d49;
+    font-family: "VT323", monospace;
+    overflow-x: hidden;
+  }
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Day Mode (Bright Sunny Sky Blue) & Night Mode (Midnight Navy) Backdrops */
+.erza-backdrop-day {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(248, 252, 255, 0.58) 0%, transparent 42%),
+    radial-gradient(circle at 82% 22%, rgba(231, 245, 255, 0.45) 0%, transparent 44%),
+    radial-gradient(circle at 50% 88%, rgba(52, 123, 184, 0.34) 0%, transparent 56%),
+    linear-gradient(175deg, #79bfff 0%, #a8d8ff 46%, #c5e5ff 78%, #e7f5ff 100%);
+}
+
+.erza-backdrop-night {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(121, 191, 255, 0.2) 0%, transparent 45%),
+    radial-gradient(circle at 84% 24%, rgba(52, 123, 184, 0.28) 0%, transparent 48%),
+    radial-gradient(circle at 50% 86%, rgba(20, 45, 73, 0.85) 0%, transparent 60%),
+    linear-gradient(170deg, #0b1b2e 0%, #142d49 52%, #1d4169 100%);
+}
+
+/* Subtle Retro Film Grain */
+.erza-grain {
+  background-image: radial-gradient(rgba(20, 45, 73, 0.08) 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+.erza-grain-night {
+  background-image: radial-gradient(rgba(231, 245, 255, 0.08) 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+/* 3D Glossy Sky-Blue Game Boy Plastic Shell */
+.gb-shell {
+  background:
+    linear-gradient(150deg, rgba(248, 252, 255, 0.55) 0%, transparent 28%),
+    linear-gradient(180deg, #a8d8ff 0%, #79bfff 36%, #4e9be8 78%, #347bb8 100%);
+  border: 2.5px solid rgba(248, 252, 255, 0.85);
+  box-shadow:
+    0 28px 60px rgba(20, 45, 73, 0.38),
+    0 14px 0 #1f5589,
+    0 18px 26px rgba(20, 45, 73, 0.35),
+    inset 0 4px 8px rgba(248, 252, 255, 0.72),
+    inset 0 -8px 14px rgba(20, 45, 73, 0.32);
+}
+
+.gb-shell-night {
+  background:
+    linear-gradient(150deg, rgba(197, 229, 255, 0.24) 0%, transparent 28%),
+    linear-gradient(180deg, #4b8dd0 0%, #347bb8 42%, #23598a 82%, #142d49 100%);
+  border: 2.5px solid rgba(168, 216, 255, 0.6);
+  box-shadow:
+    0 30px 66px rgba(5, 13, 24, 0.72),
+    0 14px 0 #0d2137,
+    0 18px 26px rgba(5, 13, 24, 0.58),
+    inset 0 3px 6px rgba(231, 245, 255, 0.48),
+    inset 0 -8px 14px rgba(10, 24, 42, 0.55);
+}
+
+/* Silver-Blue Metallic Screen Bezel */
+.gb-bezel {
+  background: linear-gradient(145deg, #f8fcff 0%, #e7f5ff 36%, #c5e5ff 74%, #a8d8ff 100%);
+  border: 2px solid rgba(248, 252, 255, 0.9);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -3px 6px rgba(52, 123, 184, 0.28),
+    0 6px 14px rgba(20, 45, 73, 0.22);
+}
+
+.gb-bezel-night {
+  background: linear-gradient(145deg, #d7ecff 0%, #a8d8ff 48%, #7cb2df 100%);
+  border: 2px solid rgba(231, 245, 255, 0.7);
+  box-shadow:
+    inset 0 2px 3px rgba(248, 252, 255, 0.8),
+    inset 0 -3px 6px rgba(20, 45, 73, 0.35),
+    0 6px 14px rgba(8, 20, 36, 0.45);
+}
+
+/* LCD Screen Modes */
+.gb-lcd-day {
+  background: linear-gradient(180deg, #f8fcff 0%, #e7f5ff 55%, #c5e5ff 100%);
+  color: #142d49;
+}
+
+.gb-lcd-night {
+  background: linear-gradient(180deg, #142d49 0%, #0f243b 62%, #0a192b 100%);
+  color: #f8fcff;
+}
+
+.gb-lcd-off {
+  background: radial-gradient(circle at 50% 45%, #1c3248 0%, #0d1c2d 85%);
+  color: #79bfff;
+}
+
+.gb-scanlines {
+  background-image:
+    linear-gradient(rgba(20, 45, 73, 0.04) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(20, 45, 73, 0.03) 50%, transparent 50%);
+  background-size: 100% 3px, 3px 100%;
+}
+
+/* Physical 3D Plastic Buttons */
+.gb-dpad-arm {
+  background: linear-gradient(160deg, #27588c 0%, #142d49 75%, #0d1f33 100%);
+  box-shadow:
+    0 4px 0 #091625,
+    inset 0 1.5px 2px rgba(168, 216, 255, 0.4);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.gb-dpad-arm.is-pressed,
+.gb-dpad-arm:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 0 #091625,
+    inset 0 1px 3px rgba(9, 22, 37, 0.8);
+}
+
+.gb-round-btn {
+  background: radial-gradient(circle at 32% 28%, #e7f5ff 0%, #79bfff 32%, #347bb8 74%, #1f5589 100%);
+  border: 2px solid rgba(248, 252, 255, 0.85);
+  box-shadow:
+    0 5px 0 #142d49,
+    0 8px 12px rgba(20, 45, 73, 0.35),
+    inset 0 2px 3px rgba(248, 252, 255, 0.85);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.gb-round-btn.is-pressed,
+.gb-round-btn:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 2px 0 #142d49,
+    0 3px 6px rgba(20, 45, 73, 0.35),
+    inset 0 2px 4px rgba(20, 45, 73, 0.4);
+}
+
+.gb-pill-btn {
+  background: linear-gradient(180deg, #e7f5ff 0%, #a8d8ff 100%);
+  border: 1.5px solid rgba(248, 252, 255, 0.9);
+  box-shadow:
+    0 3px 0 #142d49,
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.gb-pill-btn.is-pressed,
+.gb-pill-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #142d49;
+}
+
+/* Holographic Iridescent Sky-Blue Surface */
+.holo-card-surface {
+  background:
+    linear-gradient(
+      125deg,
+      rgba(121, 191, 255, 0.45) 0%,
+      rgba(231, 245, 255, 0.72) 26%,
+      rgba(165, 180, 252, 0.34) 48%,
+      rgba(168, 216, 255, 0.65) 68%,
+      rgba(52, 123, 184, 0.45) 100%
+    );
+  background-size: 220% 220%;
+  animation: holoShimmer 5s ease-in-out infinite;
+}
+
+/* 3D Card Flip */
+.card-perspective {
+  perspective: 900px;
+}
+
+.card-inner-3d {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+
+.card-inner-3d.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+
+.card-face-back {
+  transform: rotateY(180deg);
+}
+
+/* Retro Pixel Paper Texture for Note */
+.note-paper {
+  background-color: #f8fcff;
+  background-image:
+    repeating-linear-gradient(
+      transparent,
+      transparent 22px,
+      rgba(52, 123, 184, 0.14) 22px,
+      rgba(52, 123, 184, 0.14) 23px
+    ),
+    radial-gradient(circle at 90% 10%, rgba(168, 216, 255, 0.28) 0%, transparent 40%);
+}
+
+@keyframes holoShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes floatGentle {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes capsuleShake {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-6deg) scale(1.06); }
+  40% { transform: rotate(6deg) scale(1.08); }
+  60% { transform: rotate(-5deg) scale(1.08); }
+  80% { transform: rotate(4deg) scale(1.04); }
+}
+
+@keyframes spinReel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pixelGlitch {
+  0% { transform: translate(0, 0); filter: hue-rotate(0deg); }
+  20% { transform: translate(-4px, 2px); filter: hue-rotate(25deg) brightness(1.25); }
+  40% { transform: translate(4px, -2px); filter: contrast(1.4); }
+  60% { transform: translate(-2px, -1px); filter: hue-rotate(-20deg) brightness(1.18); }
+  80% { transform: translate(2px, 1px); }
+  100% { transform: translate(0, 0); filter: none; }
+}
+
+@keyframes sdSlideIn {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(-62px) translateX(70px) scale(0.75) rotate(8deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-135px) translateX(115px) scale(0.32) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 3.2s ease-in-out infinite;
+}
+
+.animate-capsule-shake {
+  animation: capsuleShake 0.48s ease-in-out;
+}
+
+.animate-spin-reel {
+  animation: spinReel 2.8s linear infinite;
+}
+
+.animate-pixel-glitch {
+  animation: pixelGlitch 0.45s steps(2, end) 2;
+}
+
+.animate-sd-slide {
+  animation: sdSlideIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Custom thin LCD scrollbar */
+.lcd-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.lcd-scroll::-webkit-scrollbar-track {
+  background: rgba(52, 123, 184, 0.14);
+  border-radius: 99px;
+}
+.lcd-scroll::-webkit-scrollbar-thumb {
+  background: rgba(52, 123, 184, 0.55);
+  border-radius: 99px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-gentle,
+  .animate-capsule-shake,
+  .animate-spin-reel,
+  .animate-pixel-glitch,
+  .holo-card-surface {
+    animation: none !important;
+  }
+  .card-inner-3d {
+    transition: none;
+  }
+}
